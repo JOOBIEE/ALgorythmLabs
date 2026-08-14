@@ -1,26 +1,86 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --fg: #ffffff;
+  --border: #2a2a2a;
+  --muted: #b3b3b3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root[data-theme="light"] {
+  --bg: #fafafa;
+  --fg: #0a0a0a;
+  --border: #d4d4d4;
+  --muted: #525252;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Monospace labels read thinner on light backgrounds than dark ones at
+   the same weight — nudging weight up slightly in light mode only
+   corrects the perceived difference without touching dark mode at all. */
+:root[data-theme="light"] .font-mono {
+  font-weight: 500;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+@keyframes mask-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-mask-wipe {
+  animation: mask-wipe 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pattern interrupt: Start Here deliberately inverts against the
+   current theme — literal opposite of whatever mode the visitor is in. */
+:root[data-theme="dark"] .pattern-interrupt {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --border: #e5e5e5;
+  --muted: #737373;
+}
+
+:root[data-theme="light"] .pattern-interrupt {
+  --bg: #0a0a0a;
+  --fg: #ffffff;
+  --border: #2a2a2a;
+  --muted: #737373;
 }

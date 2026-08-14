@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+<rect width="800" height="300" fill="none"/>
+<g fill="#1E1E1E">
+  <path d="M105 91c-28 0-50 22-50 50v18c0 28 22 50 50 50h38c28 0 50-22 50-50v-18c0-28-22-50-50-50h-38zm0 27h38c13 0 23 10 23 23v18c0 13-10 23-23 23h-38c-13 0-23-10-23-23v-18c0-13 10-23 23-23z"/>
+  <path d="M223 91h27v91h-27zM262 91h27v91h-27z"/>
+  <path d="M327 91h30l28 55 28-55h30l-43 91h-30z"/>
+  <path d="M461 91h27v91h-27zM499 91h27v91h-27z"/>
+  <path d="M555 91h27v91h-27zM582 91h31c27 0 48 18 48 45s-21 46-48 46h-31v-24h28c14 0 25-9 25-22s-11-21-25-21h-28z"/>
+</g>
+<text x="399" y="225" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1E1E1E">METRICOOL</text>
+</svg>
